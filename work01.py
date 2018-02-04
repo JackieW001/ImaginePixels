@@ -10,7 +10,11 @@ def write_header(file, w, h):
 def color(file, w, h):
     for i in range(w):
         for j in range(h):
-            file.write("0 0 255 ")
+            r = i%255
+            g = j%255
+            b = (i+j)%255
+            file.write("%d %d %d " % (r,g,b))
+        file.write("\n")
         
 with open(filename, "w") as file:
     write_header(file, w, h)
